@@ -1,0 +1,18 @@
+data segment
+      a dw 1098h
+      b dw 3074h
+      c dw 2 dup(?)
+data ends
+code segment
+assume cs:code,ds:data
+start:mov ax,data
+      mov ds,ax
+      mov ax,a
+      add ax,b
+      mov c,ax
+      mov bx,0000h
+      adc bx,0000h
+      mov c+2,bx
+int 03h
+code ends
+end start
